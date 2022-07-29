@@ -14,21 +14,15 @@ export class AppComponent {
   songs: Song[] = [];
   currentSong: Song | undefined;
 
-  constructor(private route: ActivatedRoute) {
+  constructor() {
     console.log('ListComponent;');
   }
-  private routeSub: Subscription | undefined;
 
   ngOnInit(): void {
-      this.routeSub = this.route.params.subscribe(params => {
-        console.log(params['id']) //log the value of id
-        console.log(this.routeSub) //log the value of id
-      });
+ 
   }
 
-  ngOnDestroy() {
-    this.routeSub?.unsubscribe();
-  }
+
 
 
 }
