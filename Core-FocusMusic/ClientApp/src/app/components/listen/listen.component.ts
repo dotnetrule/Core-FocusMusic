@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Song } from '../../song';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -10,23 +12,23 @@ import { Song } from '../../song';
 })
 
 export class ListenComponent implements OnInit {
-  playerConfig = {
+  public playerConfig = {
     controls: 1,
     mute: 0,
     autoplay: 1,
   };
 
-  constructor(private http: HttpClient) { 
-    var songs = this.load();
-    console.log('ListComponent;',songs);
+  @Input() song: Song | undefined;
+
+
+  constructor() { 
+    console.log('ListComponent;');
   }
   
   ngOnInit(): void {
+
   }
 
-  load() {
-    this.http.get('../../assets/json/data.json').subscribe((res) => {
-      return res;
-    });
-  }
+
+
 }

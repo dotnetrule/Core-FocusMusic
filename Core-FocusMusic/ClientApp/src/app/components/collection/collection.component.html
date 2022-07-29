@@ -1,1 +1,13 @@
-<p>collection works!</p>
+<!-- Resources -->
+<h2>Music</h2>
+
+
+<div *ngFor="let song of songs" class="card" style="width: 18rem;">
+  <img [src]="song.backgroundImgUrl" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{song.franchise}} {{song.title}}</h5>
+    <p class="card-text">{{song.artist}}</p>
+    <a rel="noopener" class="btn btn-primary" routerLink="/listen/{{song.id}}">
+      Play
+    </a>  </div>
+</div>

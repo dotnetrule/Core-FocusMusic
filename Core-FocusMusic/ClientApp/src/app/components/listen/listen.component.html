@@ -1,7 +1,8 @@
-<p>Playing video!</p>
 
+<div *ngIf="song !== undefined">
 
-<youtube-player videoId="BXClFozMU5w"
-                [playerVars]="playerConfig"
-                [height]="480"
-                [width]="720"></youtube-player>
+  <youtube-player videoId="BXClFozMU5w"
+                  [playerVars]="playerConfig"
+                  [height]="480"
+                  [width]="720"></youtube-player>
+</div>

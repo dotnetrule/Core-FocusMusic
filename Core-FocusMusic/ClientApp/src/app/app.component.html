@@ -308,27 +308,7 @@
 <div class="content" role="main">
 
   <router-outlet></router-outlet>
+  <app-listen [song]="currentSong"></app-listen>
 
-  <!-- Resources -->
-  <h2>Music</h2>
-  <div class="card-container">
-    <div *ngFor="let song of songs">
-      <a class="card btn-bgimage" rel="noopener" routerLink="/listen/{{song.id}}">
-        {{song.name}}
-      </a>
-    </div>
-
-  </div>
-
-
-  <h2>Movies</h2>
-  <div class="card-container">
-    <a class="card" rel="noopener" routerLink="/listen">
-      <span>The Batman</span>
-    </a>
-    <a class="card" rel="noopener" routerLink="/listen">
-      <span>Star Wars</span>
-    </a>
-  </div>
-
+  <app-collection></app-collection>
 </div>

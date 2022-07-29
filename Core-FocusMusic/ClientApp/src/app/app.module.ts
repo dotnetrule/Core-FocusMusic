@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import { HttpClientModule } from '@angular/common/http';
+import { SongsService } from './songs.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListenComponent } from './components/listen/listen.component';
 
-import { YouTubePlayerModule } from '@angular/youtube-player';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { CollectionComponent } from './collection/collection.component';
+import { CollectionComponent } from './components/collection/collection.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { CollectionComponent } from './collection/collection.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     YouTubePlayerModule
   ],

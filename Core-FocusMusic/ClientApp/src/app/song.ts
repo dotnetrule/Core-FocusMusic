@@ -1,6 +1,9 @@
 export interface Song {
     id: number;
-    name:string;
+  title: string;
+  artist: string;
+  franchise: string,
+
     videoId:string;
     category: string;
     thumbnailImgUrl:string;
