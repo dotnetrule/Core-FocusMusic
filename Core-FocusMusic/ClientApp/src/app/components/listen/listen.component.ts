@@ -2,7 +2,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Song } from '../../models/song-model';
+import { SongModel } from '../../models/song-model';
 import { SongsService } from '../../services/songs.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class ListenComponent implements OnInit {
 
   public routeId = 0;
   public selectedSong: Song | undefined;
-  private _songs: BehaviorSubject<Song[]> | undefined;
+  private _songs: BehaviorSubject<SongModel[]> | undefined;
 
   constructor(private route: ActivatedRoute, private songService: SongsService) { 
     this._songs = songService.getSongs();

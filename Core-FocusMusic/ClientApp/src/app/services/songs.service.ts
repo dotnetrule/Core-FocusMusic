@@ -3,7 +3,7 @@ import { Inject, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, concat, from, Observable, Subject } from 'rxjs';
 import { EnumGenre } from '../models/enum-genre';
-import { Song } from '../models/song-model';
+import { SongModel } from '../models/song-model';
 
 
 @Injectable({
@@ -11,8 +11,8 @@ import { Song } from '../models/song-model';
 })
 
 export class SongsService {
-  public songs = new BehaviorSubject<Song[]>([]);
-  public activeSong: BehaviorSubject<Song> | undefined;
+  public songs = new BehaviorSubject<SongModel[]>([]);
+  public activeSong: BehaviorSubject<SongModel> | undefined;
 
   constructor(private http: HttpClient) {
     this.load();
@@ -20,7 +20,7 @@ export class SongsService {
 
   async load() {
     const genres = Object.values(EnumGenre);
-    this.http.get<Song[]>('../../assets/data.json').subscribe(data => this.songs.next(
+    this.http.get<SongModel[]>('../../assets/data.json').subscribe(data => this.songs.next(
       data.sort())
     );
 
@@ -37,7 +37,7 @@ export class SongsService {
   }
 
 
-  public compare(a:Song, b:Song) {
+  public compare(a: SongModel, b: SongModel) {
     if (a.category < b.category) {
       return -1;
     }

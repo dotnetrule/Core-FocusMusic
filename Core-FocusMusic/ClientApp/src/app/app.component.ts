@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Song } from './models/song-model';
+import { SongModel } from './models/song-model';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -11,8 +11,8 @@ import { Subscription } from 'rxjs';
 
 export class AppComponent {
   title = 'focus-music';
-  songs: Song[] = [];
-  currentSong: Song | undefined;
+  songs: SongModel[] = [];
+  currentSong: SongModel | undefined;
 
   constructor() {
     console.log('ListComponent;');

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Song } from '../../models/song-model';
+import { SongModel } from '../../models/song-model';
 import { SongsService } from '../../services/songs.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { SongsService } from '../../services/songs.service';
 })
 
 export class CollectionComponent implements OnInit {
-  public songs: Song[] | undefined;
+  public songs: SongModel[] | undefined;
 
   constructor(private _songService: SongsService) {
     this._songService.getSongs()?.subscribe(data => {
