@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Song } from '../../song';
-import { SongsService } from '../../songs.service';
+import { Song } from '../../models/song-model';
+import { SongsService } from '../../services/songs.service';
 
 @Component({
   selector: 'app-collection',

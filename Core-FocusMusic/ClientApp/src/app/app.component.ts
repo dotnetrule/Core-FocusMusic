@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
+import { Song } from './models/song-model';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Song } from './song';
 
 @Component({
   selector: 'app-root',

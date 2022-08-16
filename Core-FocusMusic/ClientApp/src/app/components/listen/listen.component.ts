@@ -1,10 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Song } from '../../song';
-import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { SongsService } from '../../songs.service';
-
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Song } from '../../models/song-model';
+import { SongsService } from '../../services/songs.service';
 
 @Component({
   selector: 'app-listen',
@@ -20,12 +19,11 @@ export class ListenComponent implements OnInit {
   };
 
   public routeId = 0;
-  public currentSong: Song | undefined;
+  public selectedSong: Song | undefined;
   private _songs: BehaviorSubject<Song[]> | undefined;
 
   constructor(private route: ActivatedRoute, private songService: SongsService) { 
     this._songs = songService.getSongs();
-
   }
 
   private routeSub: Subscription | undefined;
@@ -35,9 +33,10 @@ export class ListenComponent implements OnInit {
       this.routeId = params['id'];
       console.log(this.routeId);
     });
-    this._songs?.subscribe(nxt => {
-      this.currentSong = nxt.find(x => x.id == this.routeId);
-    });
+    if (this.routeId != 0) {
+      this.selectedSong = this.songService.getSongById(this.routeId);
+    }
+    
   }
 
   ngOnDestroy() {
@@ -45,6 +44,6 @@ export class ListenComponent implements OnInit {
   }
 
   public reset() {
-    this.currentSong = undefined;
+    this.selectedSong = undefined;
   }
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { HttpClientModule } from '@angular/common/http';
-import { SongsService } from './songs.service';
+import { SongsService } from './services/songs.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

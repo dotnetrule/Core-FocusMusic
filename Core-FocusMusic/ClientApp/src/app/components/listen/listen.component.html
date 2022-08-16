@@ -1,10 +1,11 @@
 
 <div class="container">
   
-  <div *ngIf="currentSong != undefined">
-    
+  <div *ngIf="selectedSong != undefined">
+    {{selectedSong.videoId}}
     <div  class="btn btn-close" (click)="reset()">Close</div>
-    <youtube-player videoId="BXClFozMU5w"
+    <br/>
+    <youtube-player [videoId]="selectedSong.videoId"
                     [playerVars]="playerConfig"
                     [height]="480"
                     [width]="720"></youtube-player>

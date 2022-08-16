@@ -4,8 +4,20 @@
     "title": "Exile",
     "artist": "The National",
     "franchise": "Portal",
-    "category": "Music",
+    "category": "Fantasy",
+    "genre": "Games",
     "videoId": "IUOGUJEUQi8",
+    "thumbnailImgUrl": "https://i.imgur.com/5G4UY.jpg",
+    "backgroundImgUrl": "https://i.imgur.com/5G4UY.jpg"
+  },
+  {
+    "id": 2,
+    "title": "GuildWars",
+    "artist": "The National",
+    "franchise": "Portal",
+    "category": "Fantasy",
+    "genre": "Games",
+    "videoId": "0cVB7GT3RWw",
     "thumbnailImgUrl": "https://i.imgur.com/5G4UY.jpg",
     "backgroundImgUrl": "https://i.imgur.com/5G4UY.jpg"
   }
