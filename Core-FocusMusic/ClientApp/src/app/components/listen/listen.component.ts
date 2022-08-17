@@ -1,7 +1,6 @@
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { SongModel } from '../../models/song-model';
 import { SongsService } from '../../services/songs.service';
 
@@ -19,11 +18,10 @@ export class ListenComponent implements OnInit {
   };
 
   public routeId = 0;
-  public selectedSong: Song | undefined;
-  private _songs: BehaviorSubject<SongModel[]> | undefined;
+  public selectedSong: Observable<SongModel>;
 
-  constructor(private route: ActivatedRoute, private songService: SongsService) { 
-    this._songs = songService.getSongs();
+  constructor(private route: ActivatedRoute, private songService: SongsService)
+  {
   }
 
   private routeSub: Subscription | undefined;
@@ -31,12 +29,9 @@ export class ListenComponent implements OnInit {
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(params => {
       this.routeId = params['id'];
-      console.log(this.routeId);
     });
-    if (this.routeId != 0) {
-      this.selectedSong = this.songService.getSongById(this.routeId);
-    }
-    
+    this.selectedSong = this.songService.activeSong$;
+
   }
 
   ngOnDestroy() {
@@ -44,6 +39,6 @@ export class ListenComponent implements OnInit {
   }
 
   public reset() {
-    this.selectedSong = undefined;
+    this.songService.setActive(new SongModel());
   }
 }

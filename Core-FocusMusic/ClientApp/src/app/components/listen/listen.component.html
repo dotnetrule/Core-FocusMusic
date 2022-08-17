@@ -1,13 +1,20 @@
-
 <div class="container">
-  
-  <div *ngIf="selectedSong != undefined">
-    {{selectedSong.videoId}}
-    <div  class="btn btn-close" (click)="reset()">Close</div>
-    <br/>
-    <youtube-player [videoId]="selectedSong.videoId"
-                    [playerVars]="playerConfig"
-                    [height]="480"
-                    [width]="720"></youtube-player>
+  <div *ngIf="selectedSong | async as selectedSong">
+    <div class="row">
+      <div class="col">
+        <youtube-player [videoId]="selectedSong.videoId"
+                        [playerVars]="playerConfig"
+                        [height]="480"
+                        [width]="720"></youtube-player>
+      </div>
+      <div class="col">
+        {{selectedSong.videoId}} <br />
+        {{selectedSong.title}} <br/>
+        <div class="btn btn-primary" (click)="reset()">
+          <i class="bi bi-x-lg"></i>
+          Close
+        </div>
+      </div>
+    </div>
   </div>
 </div>

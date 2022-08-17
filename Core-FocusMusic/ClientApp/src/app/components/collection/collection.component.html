@@ -1,15 +1,23 @@
 <!-- Resources -->
-<h2>Music</h2>
 
-<div class="row">
-  <div *ngFor="let song of songs" class="card" style="width: 18rem;">
-    <img [src]="song.backgroundImgUrl" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{song.franchise}} {{song.title}}</h5>
-      <p class="card-text">{{song.artist}}</p>
-      <a rel="noopener" class="btn btn-primary" routerLink="/listen/{{song.id}}">
-        Play
-      </a>
+<div class="row" *ngFor="let songCollection of orderedSongs()">
+  <h1 class="display-5">{{songCollection.name}}</h1>
+  <div *ngFor="let song of songCollection.songs"
+       class="card"
+       style="width: 18rem;">
+    <div alt="...">
+      <div class="card-img" [style]="'background-image: url('+song.backgroundImgUrl+')'">
+        
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{song.franchise}} - {{song.title}}</h5>
+        <p class="card-text">{{song.artist}}</p>
+      </div>
+      <div class="card-actions">
+        <a rel="noopener" class="btn btn-primary" (click)="setActive(song)">
+          <i class="bi bi-play"></i>
+          Play
+        </a>
+      </div>
     </div>
-  </div>
 </div>

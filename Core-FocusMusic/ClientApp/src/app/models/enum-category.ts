@@ -1,6 +1,6 @@
 export enum EnumCategory {
-  MMORPG,
-  Fighting,
-  Fantasy,
-  ScienceFiction
+  MMORPG = "MMORPG",
+  Fighting = "Fighting",
+  Fantasy = "Fantasy",
+  ScienceFiction = "ScienceFiction"
 }

@@ -4,7 +4,7 @@
     "title": "Exile",
     "artist": "The National",
     "franchise": "Portal",
-    "category": "Fantasy",
+    "category": "ScienceFiction",
     "genre": "Games",
     "videoId": "IUOGUJEUQi8",
     "thumbnailImgUrl": "https://i.imgur.com/5G4UY.jpg",
@@ -12,13 +12,35 @@
   },
   {
     "id": 2,
-    "title": "GuildWars",
-    "artist": "The National",
-    "franchise": "Portal",
-    "category": "Fantasy",
+    "title": "OST",
+    "artist": "ArenaNet",
+    "franchise": "Guild Wars",
+    "category": "MMORPG",
     "genre": "Games",
     "videoId": "0cVB7GT3RWw",
-    "thumbnailImgUrl": "https://i.imgur.com/5G4UY.jpg",
-    "backgroundImgUrl": "https://i.imgur.com/5G4UY.jpg"
+    "thumbnailImgUrl": "https://pbs.twimg.com/media/EWJLWj3UYAIt1Ux?format=jpg&name=large",
+    "backgroundImgUrl": "https://pbs.twimg.com/media/EWJLWj3UYAIt1Ux?format=jpg&name=large"
+  },
+  {
+    "id": 3,
+    "title": "OST",
+    "artist": "",
+    "franchise": "Killer Instinct (SNES)",
+    "category": "Fighting",
+    "genre": "Games",
+    "videoId": "Po8BPq-EPS0",
+    "thumbnailImgUrl": "https://www.mobygames.com/images/covers/l/69812-killer-instinct-snes-front-cover.jpg",
+    "backgroundImgUrl": "https://www.mobygames.com/images/covers/l/69812-killer-instinct-snes-front-cover.jpg"
+  },
+  {
+    "id": 4,
+    "title": "OST",
+    "artist": "",
+    "franchise": "Street Fighter 2 (SNES)",
+    "category": "Fighting",
+    "genre": "Games",
+    "videoId": "Ceedgl2wKbg",
+    "thumbnailImgUrl": "https://images.nintendolife.com/games/snes/street_fighter_ii_the_world_warrior/cover_large.jpg",
+    "backgroundImgUrl": "https://images.nintendolife.com/games/snes/street_fighter_ii_the_world_warrior/cover_large.jpg"
   }
 ]

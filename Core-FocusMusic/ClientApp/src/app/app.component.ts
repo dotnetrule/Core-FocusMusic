@@ -15,7 +15,6 @@ export class AppComponent {
   currentSong: SongModel | undefined;
 
   constructor() {
-    console.log('ListComponent;');
   }
 
   ngOnInit(): void {
