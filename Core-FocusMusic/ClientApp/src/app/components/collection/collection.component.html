@@ -1,23 +1,24 @@
 <!-- Resources -->
 
-<div class="row" *ngFor="let songCollection of orderedSongs()">
-  <h1 class="display-5">{{songCollection.name}}</h1>
-  <div *ngFor="let song of songCollection.songs"
-       class="card"
-       style="width: 18rem;">
-    <div alt="...">
-      <div class="card-img" [style]="'background-image: url('+song.backgroundImgUrl+')'">
-        
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">{{song.franchise}} - {{song.title}}</h5>
-        <p class="card-text">{{song.artist}}</p>
-      </div>
-      <div class="card-actions">
-        <a rel="noopener" class="btn btn-primary" (click)="setActive(song)">
-          <i class="bi bi-play"></i>
-          Play
-        </a>
+<div class="container-fluid">
+  <div class="row" *ngFor="let songCollection of orderedSongs()">
+    <h1 class="display-5">{{songCollection.name}}</h1>
+    <div *ngFor="let song of songCollection.songs"
+         class="card">
+      <div alt="...">
+        <div class="card-img" [style]="'background-image: url('+song.backgroundImgUrl+')'">
+
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{song.franchise}} - {{song.title}}</h5>
+          <p class="card-text">{{song.artist}}</p>
+        </div>
+        <div class="card-actions">
+          <a rel="noopener" class="btn btn-primary" (click)="setActive(song)">
+            <i class="bi bi-play"></i>
+            Play
+          </a>
+        </div>
       </div>
     </div>
-</div>
+  </div>

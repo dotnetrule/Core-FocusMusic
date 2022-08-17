@@ -16,13 +16,12 @@ export class ListenComponent implements OnInit {
     mute: 0,
     autoplay: 1,
   };
-
   public routeId = 0;
   public selectedSong: Observable<SongModel>;
+  public isPlaying: Observable<boolean>;
 
   constructor(private route: ActivatedRoute, private songService: SongsService)
-  {
-  }
+  {  }
 
   private routeSub: Subscription | undefined;
 
@@ -31,7 +30,7 @@ export class ListenComponent implements OnInit {
       this.routeId = params['id'];
     });
     this.selectedSong = this.songService.activeSong$;
-
+    this.isPlaying = this.songService.isPlaying.asObservable();
   }
 
   ngOnDestroy() {
@@ -39,6 +38,6 @@ export class ListenComponent implements OnInit {
   }
 
   public reset() {
-    this.songService.setActive(new SongModel());
+    this.songService.unsetActive();
   }
 }

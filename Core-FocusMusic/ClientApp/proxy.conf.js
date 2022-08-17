@@ -7,6 +7,7 @@ const PROXY_CONFIG = [
   {
     context: [
       "/weatherforecast",
+      "/favicon.ico",
    ],
     target: target,
     secure: false,

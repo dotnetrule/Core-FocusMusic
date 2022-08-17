@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="isPlaying | async as isPlaying">
   <div *ngIf="selectedSong | async as selectedSong">
     <div class="row">
       <div class="col">
@@ -8,11 +8,11 @@
                         [width]="720"></youtube-player>
       </div>
       <div class="col">
-        {{selectedSong.videoId}} <br />
-        {{selectedSong.title}} <br/>
+        {{selectedSong.franchise}} <br />
+        {{selectedSong.title}} <br />
+        {{selectedSong.genre}} <br />
         <div class="btn btn-primary" (click)="reset()">
-          <i class="bi bi-x-lg"></i>
-          Close
+          <i class="bi bi-x-lg"></i> Close
         </div>
       </div>
     </div>

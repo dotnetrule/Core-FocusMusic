@@ -16,16 +16,18 @@ export class SongsService {
   public songs = new BehaviorSubject<SongModel[]>([]);
   public activeSong$: BehaviorSubject<SongModel> = new BehaviorSubject<SongModel>(null);
   public songCollectionModel: SongCollectionModel[];
+  public isPlaying: BehaviorSubject<boolean> = new BehaviorSubject < boolean>(false);
 
   constructor(private http: HttpClient) {
     this.load();
+    this.isPlaying.next(false);
   }
 
   async load() {
-    const genres = Object.values(EnumGenre);
-    this.http.get<SongModel[]>('../../assets/data.json').subscribe(data => this.songs.next(
+    await this.http.get<SongModel[]>('../../assets/data.json').subscribe(data => this.songs.next(
       data.sort())
-    );    
+    );
+
   }
 
   public getSongs() {
@@ -33,7 +35,7 @@ export class SongsService {
   }
 
   public getSongCollection() {
-    var categories = [EnumCategory.MMORPG, EnumCategory.Fighting, EnumCategory.Fantasy,  EnumCategory.ScienceFiction];
+    var categories = [EnumCategory.MMORPG, EnumCategory.Fighting, EnumCategory.Fantasy, EnumCategory.ScienceFiction];
     this.songCollectionModel = [];
 
     for (var i = 0; i < categories.length; i++) {
@@ -44,20 +46,15 @@ export class SongsService {
       collection.songs = [];
       collection.name = category.toString();
       var filtered = this.getSongs().value.filter(x => x.category === category);
-      console.log('category', category);
 
-      if (filtered.length>0) {
-        console.log('filtered',filtered);
+      if (filtered.length > 0) {
         for (var j = 0; j < filtered.length; j++) {
-          console.log('filtered', filtered[j]);
           collection.songs.push(filtered[j]);
-
         }
+        this.songCollectionModel.push(collection);
       }
 
-      this.songCollectionModel.push(collection);
     }
-    console.log(this.songCollectionModel);
     return this.songCollectionModel;
   }
 
@@ -71,8 +68,17 @@ export class SongsService {
   }
 
   public setActive(song: SongModel) {
+    this.isPlaying.next(true);
     this.activeSong$.next(song);
   }
+
+  public unsetActive() {
+    this.isPlaying.next(false);
+    var song = new SongModel();
+    song.id = 0;
+    this.activeSong$.next(song);
+  }
+
 
   public compare(a: SongModel, b: SongModel) {
     if (a.category < b.category) {
