@@ -4,21 +4,21 @@
   <div class="row" *ngFor="let songCollection of orderedSongs()">
     <h1 class="display-5">{{songCollection.name}}</h1>
     <div *ngFor="let song of songCollection.songs"
-         class="card">
-      <div alt="...">
-        <div class="card-img" [style]="'background-image: url('+song.backgroundImgUrl+')'">
+         class="song"
+         (click)="setActive(song)">
+      <div class="overlay">
+        <div class="text">
+          <i class="bi bi-play"></i>
 
         </div>
-        <div class="card-body">
-          <h5 class="card-title">{{song.franchise}} - {{song.title}}</h5>
-          <p class="card-text">{{song.artist}}</p>
-        </div>
-        <div class="card-actions">
-          <a rel="noopener" class="btn btn-primary" (click)="setActive(song)">
-            <i class="bi bi-play"></i>
-            Play
-          </a>
-        </div>
       </div>
+      <div class="card-img"
+           [style]="'background-image: url('+song.backgroundImgUrl+')'">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{song.franchise}} - {{song.title}}</h5>
+        <p class="card-text">{{song.artist}}</p>
+      </div>
+
     </div>
   </div>

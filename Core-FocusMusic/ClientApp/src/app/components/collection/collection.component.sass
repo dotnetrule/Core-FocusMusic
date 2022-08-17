@@ -1,7 +1,55 @@
 
-.card 
-  padding:0px
+
+.song 
+  padding:5px
   width: 15rem
+  cursor: pointer
+
+.overlay
+  position: absolute
+  opacity: 0
+  transition: .5s ease
+  background-color: #008CBA
+  width: 230px
+  height: 140px
+
+.song:hover .overlay 
+  opacity: 0.7
+
+.text 
+  color: white
+  font-size: 20px
+  position: absolute
+  top: 50%
+  left: 50%
+  -webkit-transform: translate(-50%, -50%)
+  -ms-transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%)
+  text-align: center
+
+
+.song:hover
+  color: blue
+  transition: 0.4s
+
+.bi
+  opacity:1
+
+
+.card-play img
+  opacity:0
+  width: 230px
+  height: 140px
+  position: absolute
+
+
+.card-play img:hover
+  position: absolute
+  opacity: 0.5
+  width: 230px
+  height: 140px
+  transition: 0.4s
+
 
 .card-img
     height: 140px
